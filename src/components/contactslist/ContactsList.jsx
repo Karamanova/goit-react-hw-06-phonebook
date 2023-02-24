@@ -1,16 +1,17 @@
-const ContactsListItem = ({ id, name, phone, onRemove }) => {
+import { PhoneList, PhoneItem, DeleteButton } from './ContactsList.styled'
+const ContactsListItem = ({ id, name, number, onRemove }) => {
     return (
-        <li>
-            {name}: {phone} <button onClick={() => onRemove(id)}>Delete</button>
-        </li>
+        <PhoneItem>
+            {name}: {number} <DeleteButton onClick={() => onRemove(id)}>Delete</DeleteButton>
+        </PhoneItem>
     )
 }
 export const ContactsList = ({ contacts, onRemove }) => {
     if (contacts.length === 0) return null
     return (
-        <ul>
-            {contacts.map(contact => <ContactsListItem {...contact} onRemove={onRemove}></ContactsListItem>)}
-        </ul>
+        <PhoneList>
+            {contacts.map(contact => <ContactsListItem key={contact.id} {...contact} onRemove={onRemove}></ContactsListItem>)}
+        </PhoneList>
     )
 }
 // export default ContactsList

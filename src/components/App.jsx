@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { Form } from 'components/form/Form';
 import { ContactsList } from 'components/contactslist/ContactsList';
 import { Filter } from 'components/filter/Filter';
+import { Container, Title } from './App.styled';
 export class App extends Component {
   state = {
     contacts: [
@@ -35,13 +36,13 @@ export class App extends Component {
     const phonebookContacts = this.getPhonebookContacts()
     const {filter} = this.state
     return (
-      <>
-      <h2>Phonebook</h2>
+      <Container>
+      <Title>Phonebook</Title>
         <Form onAdd={this.handleAddContact} onCheck={this.handleCheckContact}></Form>
-        <h2>Contacts</h2>
+        <Title>Contacts</Title>
       <Filter filter={filter} onChange={this.handleFilterChange}></Filter>  
       <ContactsList contacts={phonebookContacts} onRemove={this.handleRemoveContact}></ContactsList>
-    </>
+    </Container>
     )
 }
 };
