@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import React, { Component } from "react";
 import { nanoid } from 'nanoid';
 import { AddButton, FormContainer, NameInput, PhoneInput } from './Form.styled';
