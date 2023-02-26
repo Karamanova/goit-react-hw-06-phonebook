@@ -17,7 +17,8 @@ export class App extends Component {
 
   handleAddContact = (newContact) => {
     this.setState(({ contacts }) => {
-      const contactExists = contacts.some((contact) => contact.name === newContact.name);
+      const contactExists = contacts.some((contact) =>
+        contact.name.toLocaleLowerCase() === newContact.name.toLocaleLowerCase());
       if (contactExists) {
         alert(`The contact ${newContact.name} already exists`);
         return { contacts };
@@ -28,7 +29,8 @@ export class App extends Component {
   };
 
   handleRemoveContact = (id) => {
-    this.setState(({ contacts }) => ({ contacts: contacts.filter((contact) => contact.id !== id) }));
+    this.setState(({ contacts }) =>
+      ({ contacts: contacts.filter((contact) => contact.id !== id) }));
   };
 
   handleFilterChange = (filter) => {
