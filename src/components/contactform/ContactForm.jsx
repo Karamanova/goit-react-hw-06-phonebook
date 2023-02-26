@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { nanoid } from 'nanoid';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import { AddButton, FormContainer, NameInput, PhoneInput, ErrorMsg } from './ContactForm.styled';
 
 const initialValues = {
