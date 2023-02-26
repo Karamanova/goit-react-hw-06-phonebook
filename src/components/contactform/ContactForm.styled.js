@@ -44,3 +44,8 @@ box-shadow: .3rem .3rem .6rem #c8d0e7,
         inset -.2rem -.2rem .5rem white;
     }
 `;
+export const ErrorMsg = styled.div`
+  color: red;
+  font-size: 12px;
+  margin-top: 25px;
+`;

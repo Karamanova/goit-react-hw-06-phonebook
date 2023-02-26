@@ -1,6 +1,6 @@
 import { Component } from 'react';
 // import { nanoid } from 'nanoid';
-import { Form } from 'components/form/Form';
+import { ContactForm } from 'components/contactform/ContactForm';
 import { ContactsList } from 'components/contactslist/ContactsList';
 import { Filter } from 'components/filter/Filter';
 import { Container, Title } from './App.styled';
@@ -36,7 +36,7 @@ export class App extends Component {
     return (
       <Container>
       <Title>Phonebook</Title>
-        <Form onAdd={this.handleAddContact} onCheck={this.handleCheckContact}></Form>
+        <ContactForm onAdd={this.handleAddContact} onCheck={this.handleCheckContact}></ContactForm>
         <Title>Contacts</Title>
       <Filter filter={filter} onChange={this.handleFilterChange}></Filter>  
       <ContactsList contacts={phonebookContacts} onRemove={this.handleRemoveContact}></ContactsList>
