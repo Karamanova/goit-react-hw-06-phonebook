@@ -16,17 +16,16 @@ export class App extends Component {
   };
 
   handleAddContact = (newContact) => {
-    this.setState(({ contacts }) => {
-      const contactExists = contacts.some((contact) =>
-        contact.name.toLocaleLowerCase() === newContact.name.toLocaleLowerCase());
-      if (contactExists) {
-        alert(`The contact ${newContact.name} already exists`);
-        return { contacts };
-      } else {
-        return { contacts: [...contacts, newContact] };
-      }
-    });
-  };
+const { contacts } = this.state;
+const contactExists = contacts.some((contact) =>
+contact.name.toLocaleLowerCase() === newContact.name.toLocaleLowerCase()
+);
+if (contactExists) {
+alert(`The contact ${newContact.name} already exists`);
+} else {
+this.setState({ contacts: [...contacts, newContact] });
+}
+};
 
   handleRemoveContact = (id) => {
     this.setState(({ contacts }) =>

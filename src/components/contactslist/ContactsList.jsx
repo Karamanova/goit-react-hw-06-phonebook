@@ -1,11 +1,5 @@
-import { PhoneList, PhoneItem, DeleteButton } from './ContactsList.styled'
-const ContactsListItem = ({ id, name, number, onRemove }) => {
-    return (
-        <PhoneItem>
-            {name}: {number} <DeleteButton onClick={() => onRemove(id)}>Delete</DeleteButton>
-        </PhoneItem>
-    )
-}
+import { PhoneList} from './ContactsList.styled'
+import { ContactsListItem } from './ContactsListItem';
 export const ContactsList = ({ contacts, onRemove }) => {
     if (contacts.length === 0) return null
     return (
@@ -14,4 +8,3 @@ export const ContactsList = ({ contacts, onRemove }) => {
         </PhoneList>
     )
 }
-// export default ContactsList
