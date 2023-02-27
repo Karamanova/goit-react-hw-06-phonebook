@@ -22,9 +22,10 @@ contact.name.toLocaleLowerCase() === newContact.name.toLocaleLowerCase()
 );
 if (contactExists) {
 alert(`The contact ${newContact.name} already exists`);
-} else {
-this.setState({ contacts: [...contacts, newContact] });
-}
+  return
+} 
+this.setState(prev => ({ contacts: [....prev.contacts, newContact] }));
+
 };
 
   handleRemoveContact = (id) => {
