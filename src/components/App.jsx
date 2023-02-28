@@ -15,18 +15,17 @@ export class App extends Component {
     filter: '',
   };
 
-  handleAddContact = (newContact) => {
-const { contacts } = this.state;
-const contactExists = contacts.some((contact) =>
-contact.name.toLocaleLowerCase() === newContact.name.toLocaleLowerCase()
-);
-if (contactExists) {
-alert(`The contact ${newContact.name} already exists`);
-} else {
-this.setState({ contacts: [...contacts, newContact] });
-}
-};
-
+handleAddContact = (newContact) => {
+    const { contacts } = this.state;
+    const contactExists = contacts.some((contact) =>
+      contact.name.toLocaleLowerCase() === newContact.name.toLocaleLowerCase()
+    );
+    if (contactExists) {
+      alert(`The contact ${newContact.name} already exists`);
+      return;
+    }
+    this.setState((prev) => ({ contacts: [...prev.contacts, newContact] }));
+  };
   handleRemoveContact = (id) => {
     this.setState(({ contacts }) =>
       ({ contacts: contacts.filter((contact) => contact.id !== id) }));
