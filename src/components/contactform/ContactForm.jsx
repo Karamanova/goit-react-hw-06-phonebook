@@ -1,7 +1,8 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { getContactsList } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contactsSlice';
 import {
   AddButton,
@@ -19,13 +20,18 @@ const initialValues = {
 export const ContactForm = () => {
   const dispatch = useDispatch();
 
-
+const contacts = useSelector(getContactsList);
   
   const formik = useFormik({
     initialValues,
     onSubmit: (values, { resetForm }) => {
-      dispatch(addContact({ id: nanoid(), ...values }));
-      resetForm();
+      const isContactExist = contacts.some(contact => contact.name === values.name || contact.number === values.number);
+      if (isContactExist) {
+        alert('Contact already exists!');
+      } else {
+        dispatch(addContact({ id: nanoid(), ...values }));
+        resetForm();
+      }
     },
   });
 
